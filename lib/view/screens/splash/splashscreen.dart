@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../../constant.dart';
-import 'homescreen.dart';
+import '../../../constant.dart';
+import '../home/homescreen.dart';
+import '../home/layoutscreen.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -23,6 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
       splashTransition:SplashTransition.fadeTransition ,
       pageTransitionType:PageTransitionType.leftToRight,
       splash:SvgPicture.asset(imgSplash),
-      nextScreen:HomeScreen() ,);
+      nextScreen:LayoutScreen() ,);
   }
 }
