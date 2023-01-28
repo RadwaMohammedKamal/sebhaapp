@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sebhaapp/constant.dart';
+import 'package:intl/intl.dart' as intl ;
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(10.0),
         child: ListView(
           children: [
-            Text("الأحد 25,سبيتمبر",
+            Text("${intl.DateFormat.yMMMd().format(DateTime.now())}",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: textFont18,
