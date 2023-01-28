@@ -7,6 +7,7 @@ const Color greentextcolor =Color(0xff8C9F5E);
 const Color white =Color(0xffffffff);
 const Color backgroundcolor =Color(0xff1E1E1E);
 const Color blackbottom =Color(0xff212121);
+const Color homeshadow =Color(0xff1f2216);
 
 
 //fonts
@@ -20,7 +21,8 @@ const double textFont24=24;
 const double textFont22=22;
 const double textFont18=18;
 const double textFont16=16;
-
+const double textFont14=14;
+const double textFont12=12;
 
 //image
 const String imgSplash="assets/icons/تسبيح.svg";

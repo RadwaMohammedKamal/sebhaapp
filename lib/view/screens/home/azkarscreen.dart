@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sebhaapp/constant.dart';
+import 'package:sebhaapp/view/screens/home/desScreen.dart';
 class AzkarScreen extends StatefulWidget {
   const AzkarScreen({Key? key}) : super(key: key);
 
@@ -24,20 +25,28 @@ class _AzkarScreenState extends State<AzkarScreen> {
       backgroundColor: backgroundcolor,
       body:ListView(
         children: [
-         Padding(
-           padding: const EdgeInsets.all(5.0),
-           child: Stack(
-             children: [
-               Image.asset("$sabah",
-               width: MediaQuery.of(context).size.width,
-               ),
-               Positioned(
-                 bottom: 20,right: 20,
-                  child: Center( child: Text("اذكار الصباح",
-                  style: TextStyle(color: white,
-                  fontSize: textFont18),
-                  )))
-             ],
+         GestureDetector(
+           onTap:(){
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return DesScreen();
+            })
+            );
+           },
+           child: Padding(
+             padding: const EdgeInsets.all(5.0),
+             child: Stack(
+               children: [
+                 Image.asset("$sabah",
+                 width: MediaQuery.of(context).size.width,
+                 ),
+                 Positioned(
+                   bottom: 20,right: 20,
+                    child: Center( child: Text("اذكار الصباح",
+                    style: TextStyle(color: white,
+                    fontSize: textFont18),
+                    )))
+               ],
+             ),
            ),
          ),
          Padding(
