@@ -22,7 +22,7 @@ class _SabhaScreenState extends State<SabhaScreen> {
          fontSize:textFont26,
          fontWeight: FontWeight.w600,
        )),
-     ) ,
+     )  ,
       body: Center(
         child:Column(
           crossAxisAlignment: CrossAxisAlignment.center,
