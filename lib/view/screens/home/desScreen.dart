@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sebhaapp/constant.dart';
 import 'package:sebhaapp/view/screens/splash/cardzekr.dart';
+
+import '../../../controller/azkar.dart';
 class DesScreen extends StatefulWidget {
   const DesScreen({Key? key}) : super(key: key);
 
@@ -28,15 +30,34 @@ Navigator.pop(context);
   ),
   ),
 ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: [
-            CardZaker(count: 5,text: "“((اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ)). [وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.]”",),
-            CardZaker(count: 20,text: "“(اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ)”",),
-            CardZaker(count: 10,text: "“((سُبْحَانَ اللَّهِ وَبِحَمْدِهِ))”",),
-          ],
-        ),
+    //  body: Padding(
+     //   padding: const EdgeInsets.all(8.0),
+      //  child: ListView(
+       //   children: [
+        //    CardZaker(count: 5,
+         //     text: "“((اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ)). [وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.]”",),
+
+         // ],
+      //  ),
+     // ),
+
+      body: FutureBuilder(
+        future: AzkarApi.fetchAzkar(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          return (snapshot.hasData)
+              ? ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: CardZaker(
+                    count: snapshot.data[index].repeat,
+                    text: "${snapshot.data[index].zekr}"),
+              );
+            },
+          )
+              : Center(child: CircularProgressIndicator());
+        },
       ),
     );
   }

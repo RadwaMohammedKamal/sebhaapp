@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sebhaapp/constant.dart';
 import 'package:intl/intl.dart' as intl ;
 
-import '../../../controller/timepray.dart';
+import '../../../controller/timeprayer.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: blackbottom,
               shadowColor: Colors.black.withOpacity(0.1),
               child: FutureBuilder(
-                future: TimePray.gettimepray(),
+                future: TimePrayer.getTimePrayer(),
                 builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 return  Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -150,6 +150,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: white,
                               ),),
                             Text("الفجر",
+                              style: TextStyle(
+                                fontSize: textFont14,
+                                fontWeight: FontWeight.w600,
+                                color: white,
+                              ),),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("${snapshot.data.shurooq}",
+                              style: TextStyle(
+                                fontSize: textFont14,
+                                fontWeight: FontWeight.w600,
+                                color: white,
+                              ),),
+                            Text("الشروق",
                               style: TextStyle(
                                 fontSize: textFont14,
                                 fontWeight: FontWeight.w600,
